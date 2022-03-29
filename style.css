@@ -1,0 +1,115 @@
+/* h1, h2 {
+  font-family: Lato;
+} */
+
+:root {
+  --active: #acd5f2;
+  --stale: #ededed;
+  --hover: #426381;
+  --hover-stale: grey;
+  --small-text-color: #595858;
+  --l-10: #acd5f2;
+  --l-20: #7fa8c9;
+  --l-30: #527ba0;
+  --g-30: #254e77;
+  --scale: 1.2;
+}
+
+.calendar {
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  grid-template-rows: repeat(8, 20px);
+
+  /*   resize: horizontal;
+  overflow: auto; */
+}
+
+.months {
+  grid-row: 1 / span 1;
+  grid-column: 2/-1;
+  display: grid;
+  grid-template-columns: repeat(13, 1fr);
+  justify-items: start;
+}
+
+.days {
+  grid-row: 2/-1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.small {
+  font-size: 0.8rem;
+  color: var(--small-text-color);
+}
+
+.items {
+  grid-row: 2/-1;
+  grid-column: 2/-1;
+  display: grid;
+  grid-template-rows: repeat(7, 1fr);
+  grid-auto-flow: column;
+}
+
+.item {
+  border: none;
+  background: var(--active);
+  filter: drop-shadow(0px 0px 2px grey);
+  cursor: pointer;
+}
+.item:hover,
+.item:focus-visible {
+  background: var(--hover);
+  transform: scale(var(--scale));
+  z-index: 1;
+}
+.item.stale {
+  background: var(--stale);
+}
+.item.stale:hover,
+.item.stale:focus-visible {
+  background: var(--hover-stale);
+  transform: scale(var(--scale));
+  z-index: 1;
+}
+.item.l-10 {
+  background: var(--l-10);
+}
+.item.l-20 {
+  background: var(--l-20);
+}
+.item.l-30 {
+  background: var(--l-30);
+}
+.item.g-30 {
+  background: var(--g-30);
+}
+.item.l-10:hover,
+.item.l-10:focus-visible,
+.item.l-20:hover,
+.item.l-20:focus-visible,
+.item.l-30:hover,
+.item.l-30e:focus-visible,
+.item.g-30:hover,
+.item.g-30:focus-visible {
+  background: var(--hover);
+  transform: scale(var(--scale));
+  z-index: 1;
+}
+.tooltip {
+  display: none;
+  position: fixed;
+  transition: all 1s;
+  transition-timing-function: cubic-bezier(1, -0.45, 0.04, 1.46);
+  background: black;
+  color: white;
+  z-index: 2;
+  padding: 10px;
+  border-radius: 10%;
+}
+
+.tooltip.active {
+  display: block;
+}
