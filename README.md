@@ -12,7 +12,8 @@ Some of the key features:
 
 - Commit Info on hover or by keyboard navigation
 - Event delegation
-- Uses CSS grid and CSS variables- Keyboard Navigable - with tabs and arrow keys
+- Uses CSS grid and CSS variables
+- Keyboard Navigable - with tabs and arrow keys
 - Responsive for any screen size
   GitHub repo
 
