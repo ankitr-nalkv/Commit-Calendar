@@ -204,7 +204,7 @@ export class CommitCalendar {
       36: 'start',
     };
   }
-  init() {
+  render() {
     this.createEls();
     this.resizeNodes = this.dateNodes;
     this.lastWidth = this.calendar.clientWidth;
