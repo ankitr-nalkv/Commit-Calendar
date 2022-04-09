@@ -15,6 +15,5 @@ Some of the key features:
 - Uses CSS grid and CSS variables
 - Keyboard Navigable - with tabs and arrow keys
 - Responsive for any screen size
-  GitHub repo
 
   [Demo ⚡️](https://stackblitz.com/edit/js-kqduaw)
