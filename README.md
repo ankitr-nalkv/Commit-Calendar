@@ -13,7 +13,10 @@ Some of the key features:
 - Commit Info on hover or by keyboard navigation
 - Event delegation
 - Uses CSS grid and CSS variables
-- Keyboard Navigable - with tabs and arrow keys
+- Keyboard Navigable
+  - With tabs and arrow keys
+  - Go to first calendar item by 'home' key and last item by 'end' key
+  - Retains last selected calendar item if focus is moved away from calendar
 - Responsive for any screen size
 
   [Demo ⚡️](https://stackblitz.com/edit/js-kqduaw)
