@@ -1,5 +1,3 @@
-import commitInfo from './commit-data.json';
-
 export class CommitCalendar {
   constructor(calendar, items, tooltip, monthsConatiner) {
     this.calendar = calendar;
