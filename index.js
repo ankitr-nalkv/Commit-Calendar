@@ -1,5 +1,6 @@
 // Import stylesheets
 import './style.css';
+import commitInfo from './commit-data.json';
 
 class CommitCalendar {
   constructor() {
@@ -223,16 +224,28 @@ class CommitCalendar {
       this.isMouseOver = true;
       this.debounce(this.hover, e);
     });
-    this.items.addEventListener('focusout', () => this.close);
+    this.items.addEventListener('focusout', (e) => {
+      this.close(e);
+    });
     this.items.addEventListener('mouseover', (e) => {
       this.isMouseOver = true;
       this.debounce(this.hover, e);
     });
-    this.items.addEventListener('mouseout', () => this.close);
-    this.items.addEventListener('mouseleave', () => this.close);
-    this.tooltip.addEventListener('mouseover', () => this.open);
-    this.tooltip.addEventListener('mouseleave', () => this.close);
-    addEventListener('resize', () => this.handleResize);
+    this.items.addEventListener('mouseout', (e) => {
+      this.close(e);
+    });
+    this.items.addEventListener('mouseleave', (e) => {
+      this.close(e);
+    });
+    this.tooltip.addEventListener('mouseover', (e) => {
+      this.open(e);
+    });
+    this.tooltip.addEventListener('mouseleave', (e) => {
+      this.close(e);
+    });
+    addEventListener('resize', (e) => {
+      this.handleResize(e);
+    });
   }
   createEls() {
     let curDateVal = this.addDate(new Date(), 1);
