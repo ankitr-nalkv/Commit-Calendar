@@ -16,4 +16,4 @@ Some of the key features:
 - Responsive for any screen size
   GitHub repo
 
-  [Edit on StackBlitz ⚡️](https://stackblitz.com/edit/js-kqduaw)
+  [Demo ⚡️](https://stackblitz.com/edit/js-kqduaw)
