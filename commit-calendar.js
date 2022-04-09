@@ -275,7 +275,7 @@ export class CommitCalendar {
       this.dateNodes.push(item);
     }
   }
-  createMonths(startMonth, endMonth) {
+  createMonths(startMonth, startYear, endMonth, endYear) {
     let months = [
       'Jan',
       'Feb',
@@ -292,14 +292,26 @@ export class CommitCalendar {
     ];
     let i = startMonth,
       count = 0;
-    this.monthsConatiner.style['grid-template-columns'] =
-      'repeat(' + (endMonth + 13 - startMonth) + ', 1fr)';
-    while (count < endMonth + 13 - startMonth) {
-      let monthEl = document.createElement('div');
-      monthEl.textContent = months[i];
-      this.monthsConatiner.append(monthEl);
-      i = i === 11 ? 0 : i + 1;
-      count++;
+    if (startYear !== endYear) {
+      this.monthsConatiner.style['grid-template-columns'] =
+        'repeat(' + (endMonth + 13 - startMonth) + ', 1fr)';
+      while (count < endMonth + 13 - startMonth) {
+        let monthEl = document.createElement('div');
+        monthEl.textContent = months[i];
+        this.monthsConatiner.append(monthEl);
+        i = i === 11 ? 0 : i + 1;
+        count++;
+      }
+    } else {
+      this.monthsConatiner.style['grid-template-columns'] =
+        'repeat(' + (endMonth + 1 - startMonth) + ', 1fr)';
+      while (count < endMonth + 1 - startMonth) {
+        let monthEl = document.createElement('div');
+        monthEl.textContent = months[i];
+        this.monthsConatiner.append(monthEl);
+        i = i === 11 ? 0 : i + 1;
+        count++;
+      }
     }
   }
   getFormattedDate(d) {
@@ -356,7 +368,12 @@ export class CommitCalendar {
     let firstDate = new Date(this.items.firstElementChild.dataset.date);
     let firstDay = firstDate.getDay() + 1;
 
-    this.createMonths(firstDate.getMonth(), new Date().getMonth());
+    this.createMonths(
+      firstDate.getMonth(),
+      firstDate.getFullYear(),
+      new Date().getMonth(),
+      new Date().getFullYear()
+    );
     this.items.firstElementChild.style.gridRow = firstDay;
     this.items.children[this.focussedDate].setAttribute('tabindex', '0');
   }
